@@ -169,5 +169,10 @@ namespace GameServer_Management.Forms
             string imgPath = Path.Combine(projectDir, "asset", "x(39).png");
             exitbtn.Image = Image.FromFile(imgPath);
         }
+
+        private void SignUp_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

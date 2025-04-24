@@ -1,4 +1,7 @@
-﻿using System;
+﻿using GameServer_Management.Class;
+using GameServer_Management.Forms;
+using System;
+using System.Collections;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -18,8 +21,26 @@ namespace GameServer_Management.Controller
 
         private void getbtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Game is added to your Librabry");
+            int userId = Login.userID; // Replace with how you track current user
+            int gameId = this.id;
+
+            string query = "INSERT INTO usergamestbl (userID, gameID) VALUES (@userID, @gameID)";
+            Hashtable h = new Hashtable
+    {
+        { "@userID", userId },
+        { "@gameID", gameId }
+    };
+
+            if (DBconnect.SQL(query, h) > 0)
+            {
+                MessageBox.Show("Game is added to your Library");
+            }
+            else
+            {
+                MessageBox.Show("Failed to add game to Library");
+            }
         }
+
 
         public int id { get; set; }
         public string desc

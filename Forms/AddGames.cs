@@ -14,6 +14,33 @@ namespace GameServer_Management.Forms
     {
         private string dotbell;
 
+
+
+        //added
+        private void btnBrowseExe_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Executable Files (*.exe)|*.exe";
+            ofd.Title = "Select Game Executable";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                txtExePath.Text = ofd.FileName;
+            }
+        }
+        private void btnBrowseGameDir_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog fbd = new FolderBrowserDialog())
+            {
+                if (fbd.ShowDialog() == DialogResult.OK)
+                {
+                    txtGameFileDir.Text = fbd.SelectedPath;
+                }
+            }
+        }
+
+
+
         public AddGames()
         {
             InitializeComponent();
@@ -54,12 +81,16 @@ namespace GameServer_Management.Forms
 
             Hashtable h = new Hashtable();
             if (id != 0) { h.Add("@gameID", id); }
-
             h.Add("@gameName", txtName.Text);
             h.Add("@gameDesc", txtDesc.Text);
             h.Add("@categoryID", Convert.ToInt32(cbCat.SelectedValue));
             h.Add("@gameprice", Convert.ToDouble(txtPrice.Text));
             //h.Add("@releaseDate", txtRelDate.Text);
+
+            //added
+            h.Add("@exePath", txtExePath.Text);
+            h.Add("@gameFileDir", txtGameFileDir.Text);
+
 
             DateTime releaseDate;
             if (DateTime.TryParseExact(txtRelDate.Text, "dd-MM-yyyy", null, System.Globalization.DateTimeStyles.None, out releaseDate))

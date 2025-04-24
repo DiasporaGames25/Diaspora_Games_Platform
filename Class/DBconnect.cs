@@ -9,12 +9,16 @@ namespace GameServer_Management.Class
 {
     public class DBconnect
     {
-        public static readonly string cs = @"Data Source=NAVINNAWSHIN\SQLEXPRESS;Initial Catalog=GameServerDB;Integrated Security=True";
+        //public static readonly string cs = @"Data Source=NAVINNAWSHIN\SQLEXPRESS;Initial Catalog=GameServerDB;Integrated Security=True";
         /*private static string path = Path.GetFullPath(Environment.CurrentDirectory);
         private static string database = "GameServerDB.mdf";
         public static readonly string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename= " + path + @"\" + database + ";Integrated Security=True;";    */
 
         //public static readonly string cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\GameHub_DB.mdf;Integrated Security=True;";
+        //public static readonly string cs = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=GameServerDB;Integrated Security=True";
+
+        public static readonly string cs = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=GameServerDB;Integrated Security=True";
+
 
         public static SqlConnection GetConnection()
         {
@@ -110,7 +114,25 @@ namespace GameServer_Management.Class
                     con.Open();
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        cmd.CommandType = CommandType.StoredProcedure;
+                        //cmd.CommandType = CommandType.StoredProcedure;
+
+                        //added 4/7
+                        if (query.TrimStart().StartsWith("INSERT", StringComparison.OrdinalIgnoreCase) ||
+    query.StartsWith("UPDATE", StringComparison.OrdinalIgnoreCase) ||
+    query.StartsWith("DELETE", StringComparison.OrdinalIgnoreCase) ||
+    query.StartsWith("SELECT", StringComparison.OrdinalIgnoreCase))
+                        {
+                            cmd.CommandType = CommandType.Text;
+                        }
+                        else
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                        }
+
+
+
+
+
                         foreach (DictionaryEntry item in h)
                         {
                             cmd.Parameters.AddWithValue(item.Key.ToString(), item.Value);
@@ -211,5 +233,24 @@ namespace GameServer_Management.Class
                 }
             }
         }
+
+        //added
+        public static DataTable ExecuteQuery(string query, Hashtable ht)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection con = GetConnection())
+            {
+                SqlCommand cmd = new SqlCommand(query, con);
+                foreach (DictionaryEntry item in ht)
+                {
+                    cmd.Parameters.AddWithValue(item.Key.ToString(), item.Value);
+                }
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            return dt;
+        }
+
     }
 }

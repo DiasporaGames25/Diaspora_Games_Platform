@@ -1,5 +1,7 @@
 ﻿using GameServer_Management.Class;
 using System;
+using System.Collections;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
@@ -12,6 +14,9 @@ namespace GameServer_Management.Forms
         public static string username { get; private set; }
         private string redExitImgPath;
         private string exitImgPath;
+
+        public static int userID { get; private set; }
+
 
         public Login()
         {
@@ -67,10 +72,35 @@ namespace GameServer_Management.Forms
                 await Task.Delay(1000);
 
                 //MessageBox.Show("Login Successful");
+                //username = txtUsername.Text;
+                //AdminPanel ap = new AdminPanel(false,username);
+                //ap.Show();
+                //this.Hide();
+
+
+                //added
                 username = txtUsername.Text;
-                AdminPanel ap = new AdminPanel(false,username);
-                ap.Show();
-                this.Hide();
+
+                // Fetch userID from database
+                string query = "SELECT userID FROM usertbl WHERE username = @username";
+                Hashtable h = new Hashtable();
+                h.Add("@username", username);
+
+                DataTable dt = DBconnect.ExecuteQuery(query, h); // You need to define this method if not already done
+
+                if (dt.Rows.Count > 0)
+                {
+                    userID = Convert.ToInt32(dt.Rows[0]["userID"]);
+
+                    AdminPanel ap = new AdminPanel(false, username);
+                    ap.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Could not find user ID for the given username.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
 

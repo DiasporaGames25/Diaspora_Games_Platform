@@ -20,7 +20,21 @@
             base.Dispose(disposing);
         }
 
+
+
         #region Windows Form Designer generated code
+
+        //added 
+        private System.Windows.Forms.Label labelExePath;
+        private Krypton.Toolkit.KryptonTextBox txtExePath;
+        private System.Windows.Forms.Button btnBrowseExe;
+
+
+        // Added 4/15/25
+        private System.Windows.Forms.Label labelGameDir;
+        private Krypton.Toolkit.KryptonTextBox txtGameFileDir;
+        private System.Windows.Forms.Button btnBrowseGameDir;
+
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -326,7 +340,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            this.ClientSize = new System.Drawing.Size(825, 697);
+            //this.ClientSize = new System.Drawing.Size(825, 697);
+
+            this.ClientSize = new System.Drawing.Size(825, 850);
+
             this.Controls.Add(this.cbCat);
             this.Controls.Add(this.cancelbtn);
             this.Controls.Add(this.btnAdd);
@@ -349,6 +366,79 @@
             this.Load += new System.EventHandler(this.AddGames_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCat)).EndInit();
+
+
+
+
+
+            //added
+            // Executable Path Label
+            this.labelExePath = new System.Windows.Forms.Label();
+            this.labelExePath.AutoSize = true;
+            this.labelExePath.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.labelExePath.ForeColor = System.Drawing.Color.MediumPurple;
+            this.labelExePath.Location = new System.Drawing.Point(61, 630);
+            this.labelExePath.Name = "labelExePath";
+            this.labelExePath.Size = new System.Drawing.Size(170, 23);
+            this.labelExePath.Text = "Executable Path";
+            this.Controls.Add(this.labelExePath);
+
+            // Executable Path TextBox
+            this.txtExePath = new Krypton.Toolkit.KryptonTextBox();
+            this.txtExePath.Location = new System.Drawing.Point(43, 660);
+            this.txtExePath.Name = "txtExePath";
+            this.txtExePath.Size = new System.Drawing.Size(500, 40);
+            this.txtExePath.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(52, 53, 58);
+            this.txtExePath.StateCommon.Border.Rounding = 30F;
+            this.txtExePath.StateCommon.Content.Color1 = System.Drawing.Color.White;
+            this.txtExePath.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.Controls.Add(this.txtExePath);
+
+
+
+            //added 4/15/25
+            this.labelGameDir = new System.Windows.Forms.Label();
+            this.labelGameDir.Text = "Game File Directory";
+            this.labelGameDir.Location = new System.Drawing.Point(61, 710);
+            this.labelGameDir.Size = new System.Drawing.Size(200, 23);
+            this.labelGameDir.ForeColor = System.Drawing.Color.MediumPurple;
+            this.labelGameDir.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+
+            this.txtGameFileDir = new Krypton.Toolkit.KryptonTextBox();
+            this.txtGameFileDir.Location = new System.Drawing.Point(43, 740);
+            this.txtGameFileDir.Size = new System.Drawing.Size(500, 40);
+            this.txtGameFileDir.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(52, 53, 58);
+            this.txtGameFileDir.StateCommon.Content.Color1 = System.Drawing.Color.White;
+            this.txtGameFileDir.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+
+            this.btnBrowseGameFileDir = new System.Windows.Forms.Button();
+            this.btnBrowseGameFileDir.Text = "Browse...";
+            this.btnBrowseGameFileDir.Location = new System.Drawing.Point(550, 740);
+            this.btnBrowseGameFileDir.Size = new System.Drawing.Size(100, 40);
+            this.btnBrowseGameFileDir.Click += new System.EventHandler(this.btnBrowseGameDir_Click);
+
+            this.Controls.Add(this.labelGameDir);
+            this.Controls.Add(this.txtGameFileDir);
+            this.Controls.Add(this.btnBrowseGameFileDir);
+
+
+
+
+
+
+
+            // Browse Button
+            this.btnBrowseExe = new System.Windows.Forms.Button();
+            this.btnBrowseExe.Text = "Browse";
+            this.btnBrowseExe.Location = new System.Drawing.Point(560, 660);
+            this.btnBrowseExe.Size = new System.Drawing.Size(80, 40);
+            this.btnBrowseExe.Click += new System.EventHandler(this.btnBrowseExe_Click);
+            this.Controls.Add(this.btnBrowseExe);
+
+
+
+
+
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,5 +463,17 @@
         public Krypton.Toolkit.KryptonComboBox cbCat;
         public System.Windows.Forms.PictureBox pictureBox1;
         private CuoreUI.Components.cuiControlBlur cuiControlBlur1;
+
+
+        //added 4/15/2025
+        private System.Windows.Forms.Label labelGameFileDir;
+        //private Krypton.Toolkit.KryptonTextBox txtGameFileDir;
+        private System.Windows.Forms.Button btnBrowseGameFileDir;
+
+
+
+
+
+
     }
 }
