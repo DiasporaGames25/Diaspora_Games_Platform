@@ -35,6 +35,26 @@
             this.CategoryPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.searchtxtbox = new Krypton.Toolkit.KryptonTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+
+
+            //added 4/29
+            this.balanceLabel = new System.Windows.Forms.Label();
+            this.balanceLabel.AutoSize = true;
+            this.balanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.balanceLabel.ForeColor = System.Drawing.Color.White;
+            this.balanceLabel.Location = new System.Drawing.Point(830, 25); // Adjust as needed
+            this.balanceLabel.Name = "balanceLabel";
+            this.balanceLabel.Size = new System.Drawing.Size(80, 24);
+            this.balanceLabel.Text = "$100.00";
+            this.Controls.Add(this.balanceLabel);
+
+
+
+
+
+
+
+
             this.loadingtimer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -507,6 +527,48 @@
             this.bellbtn.TabIndex = 25;
             this.bellbtn.TextOffset = new System.Drawing.Point(0, 0);
             this.bellbtn.Click += new System.EventHandler(this.bellbtn_Click);
+
+
+
+
+            //added 5/1
+            // Archive Button            //this.archivebtn = new CuoreUI.Controls.cuiButton();
+            //this.archivebtn.CheckButton = false;
+            //this.archivebtn.Checked = false;
+            //this.archivebtn.CheckedBackground = System.Drawing.Color.Coral;
+            //this.archivebtn.CheckedImageTint = System.Drawing.Color.White;
+            //this.archivebtn.CheckedOutline = System.Drawing.Color.Silver;
+            //this.archivebtn.Content = "";
+            //this.archivebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            //this.archivebtn.ForeColor = System.Drawing.Color.White;
+            //this.archivebtn.HoverBackground = System.Drawing.Color.White;
+            //this.archivebtn.HoveredImageTint = System.Drawing.Color.White;
+            //this.archivebtn.HoverOutline = System.Drawing.Color.Transparent;
+            ////this.archivebtn.Image = global::GameServer_Management.Properties.Resources.archive; // use your icon
+            //this.archivebtn.ImageAutoCenter = true;
+            //this.archivebtn.ImageExpand = new System.Drawing.Point(15, 15);
+            //this.archivebtn.ImageOffset = new System.Drawing.Point(0, 0);
+            //this.archivebtn.ImageTint = System.Drawing.Color.White;
+            //this.archivebtn.Location = new System.Drawing.Point(10, 130); // Position below download button
+            //this.archivebtn.Name = "archivebtn";
+            //this.archivebtn.NormalBackground = System.Drawing.Color.Transparent;
+            //this.archivebtn.NormalOutline = System.Drawing.Color.Empty;
+            //this.archivebtn.OutlineThickness = 3F;
+            //this.archivebtn.PressedBackground = System.Drawing.Color.MediumPurple;
+            //this.archivebtn.PressedImageTint = System.Drawing.Color.White;
+            //this.archivebtn.PressedOutline = System.Drawing.Color.Empty;
+            //this.archivebtn.Rounding = new System.Windows.Forms.Padding(15);
+            //this.archivebtn.Size = new System.Drawing.Size(40, 38);
+            //this.archivebtn.TabIndex = 99;
+            //this.archivebtn.TextOffset = new System.Drawing.Point(0, 0);
+            //this.archivebtn.Click += new System.EventHandler(this.archivebtn_Click);
+
+            //// Add it to the Form or panel
+            //this.Controls.Add(this.archivebtn); // or use panelX.Controls.Add(this.archivebtn);
+
+
+
+
             // 
             // notificationpanel
             // 
@@ -689,5 +751,9 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private CuoreUI.Components.cuiControlBlur cuiControlBlur1;
         private CuoreUI.Components.cuiControlBlur notificationBlur;
+
+        //added 5/1
+        public CuoreUI.Controls.cuiButton archivebtn;
+
     }
 }

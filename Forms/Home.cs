@@ -204,6 +204,34 @@ namespace GameServer_Management.Forms
             v.BringToFront();   //loading data backward
             //gameDescList.Add(v);
         }
+
+        //added 4/29
+        private Label balanceLabel; // Add this at the class level
+        public void ShowBalance()
+        {
+            string query = "SELECT balance FROM usertbl WHERE userID = @userID";
+
+            using (SqlConnection con = DBconnect.GetConnection())
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@userID", Login.userID);
+                    var result = cmd.ExecuteScalar();
+
+                    if (result != DBNull.Value && result != null)
+                    {
+                        balanceLabel.Text = $"${Convert.ToDecimal(result):0.00}";
+                    }
+                    else
+                    {
+                        balanceLabel.Text = "$0.00";
+                    }
+                }
+            }
+        }
+
+
         private async void LoadItems()
         {
             string query = "select * from gamestbl t1 inner join categorytbl t2 on t2.catID = t1.categoryID";
@@ -239,6 +267,8 @@ namespace GameServer_Management.Forms
                         }
                         countDown = 0; // Reset counter
                         slideImgTimer.Start(); // Start the timer after images are loaded
+
+                        //ShowBalance();//added 4/29
                     }
                 }catch(Exception ex) { MessageBox.Show($"Error! {ex.Message}"); }
             }
@@ -290,6 +320,9 @@ namespace GameServer_Management.Forms
             AddCat();
             listPanel.Controls.Clear();
             LoadItems();
+
+            //added 4/29
+            ShowBalance();
         }
 
         private void loadingtimer_Tick(object sender, EventArgs e)
@@ -364,5 +397,15 @@ namespace GameServer_Management.Forms
         {
             notificationpanel.Visible = false;
         }
+
+
+
+        //added 5/1
+        private void archivebtn_Click(object sender, EventArgs e)
+        {
+            GameArchive archiveForm = new GameArchive();
+            archiveForm.Show();
+        }
+
     }
 }

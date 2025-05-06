@@ -796,6 +796,7 @@
             this.Name = "SignUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SignUp";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.SignUp_Load);
             this.MouseHover += new System.EventHandler(this.SignUp_MouseHover);
             this.mainpanel.ResumeLayout(false);

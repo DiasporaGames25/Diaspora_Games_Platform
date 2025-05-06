@@ -19,26 +19,118 @@ namespace GameServer_Management.Controller
             this.Hide();
         }
 
+    //    private void getbtn_Click(object sender, EventArgs e)
+    //    {
+    //        int userId = Login.userID; // Replace with how you track current user
+    //        int gameId = this.id;
+
+    //        string query = "INSERT INTO usergamestbl (userID, gameID) VALUES (@userID, @gameID)";
+    //        Hashtable h = new Hashtable
+    //{
+    //    { "@userID", userId },
+    //    { "@gameID", gameId }
+    //};
+
+    //        if (DBconnect.SQL(query, h) > 0)
+    //        {
+    //            MessageBox.Show("Game is added to your Library");
+    //        }
+    //        else
+    //        {
+    //            MessageBox.Show("Failed to add game to Library");
+    //        }
+    //    }
+
+
+        //added 4/28
         private void getbtn_Click(object sender, EventArgs e)
         {
-            int userId = Login.userID; // Replace with how you track current user
+            int userId = Login.userID; // Current user
             int gameId = this.id;
 
-            string query = "INSERT INTO usergamestbl (userID, gameID) VALUES (@userID, @gameID)";
+            // Generate a license key
+            string licenseKey = Guid.NewGuid().ToString();
+
+            string query = "INSERT INTO usergamestbl (userID, gameID, licenseKey) VALUES (@userID, @gameID, @licenseKey)";
             Hashtable h = new Hashtable
     {
         { "@userID", userId },
-        { "@gameID", gameId }
+        { "@gameID", gameId },
+        { "@licenseKey", licenseKey }
     };
 
+            //if (DBconnect.SQL(query, h) > 0)
+            //{
+            //    MessageBox.Show("Game is added to your Library!\nYour License Key: " + licenseKey);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Failed to add game to Library");
+            //}
+
+
+            //modified 4/29
             if (DBconnect.SQL(query, h) > 0)
             {
-                MessageBox.Show("Game is added to your Library");
+                // DEBUG: check what's inside gameprice.Content
+                string rawPrice = gameprice.Content.ToString().Replace("$", "").Replace(@"\", "").Trim();
+                MessageBox.Show($"DEBUG: gameprice.Content = '{rawPrice}'");
+
+                // Try parsing once
+                if (!decimal.TryParse(rawPrice, out decimal parsedPrice))
+                {
+                    MessageBox.Show($"Invalid price format: '{rawPrice}'", "Parsing Error");
+                    return;
+                }
+
+                // Deduct balance
+                string deductQuery = "UPDATE usertbl SET balance = balance - @price WHERE userID = @userID";
+                Hashtable deductParams = new Hashtable {
+        { "@price", parsedPrice },
+        { "@userID", userId }
+    };
+                DBconnect.SQL(deductQuery, deductParams);
+
+                // Refresh balance on screen
+                Home.Instance?.ShowBalance();
+
+                // Confirm
+                MessageBox.Show("Game is added to your Library!");
             }
             else
             {
                 MessageBox.Show("Failed to add game to Library");
             }
+
+            //        //modified 4/29
+            //        if (DBconnect.SQL(query, h) > 0)
+            //        {
+            //            // DEBUG: check what's inside gameprice.Content
+            //            MessageBox.Show($"DEBUG: gameprice.Content = '{gameprice.Content}'");
+
+            //            // Try parsing the price
+            //            string rawPrice = gameprice.Content.ToString().Replace("$", "").Replace(@"\", "").Trim();
+            //            if (!decimal.TryParse(rawPrice, out decimal parsedPrice))
+            //            {
+            //                MessageBox.Show($"Invalid price format: '{rawPrice}'", "Parsing Error");
+            //                return;
+            //            }
+
+            //            // Deduct balance
+            //            string deductQuery = "UPDATE usertbl SET balance = balance - @price WHERE userID = @userID";
+            //            Hashtable deductParams = new Hashtable {
+            //    { "@price", parsedPrice },
+            //    { "@userID", userId }
+            //};
+            //            DBconnect.SQL(deductQuery, deductParams);
+
+            //            Home.Instance?.ShowBalance();
+            //            MessageBox.Show("Game is added to your Library!");
+            //        }
+
+
+
+
         }
 
 

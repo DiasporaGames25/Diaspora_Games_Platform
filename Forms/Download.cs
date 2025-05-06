@@ -172,12 +172,61 @@ namespace GameServer_Management.Forms
                                 Text = isInstalled ? "Play" : "Download"
                             };
 
+                            //if (isInstalled)
+                            //{
+                            //    actionButton.Click += (s, e) =>
+                            //    {
+                            //        try
+                            //        {
+                            //            MessageBox.Show($"Launching: {targetExe}");
+
+                            //            Process.Start(new ProcessStartInfo
+                            //            {
+                            //                FileName = targetExe,
+                            //                UseShellExecute = true
+                            //            });
+                            //        }
+                            //        catch (Exception ex)
+                            //        {
+                            //            MessageBox.Show($"Failed to start game:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //        }
+                            //    };
+                            //}
                             if (isInstalled)
                             {
                                 actionButton.Click += (s, e) =>
                                 {
                                     try
                                     {
+                                        // Fetch user's licenseKey for this game
+                                        string licenseKeyFromDB = null;
+
+                                        using (SqlConnection licenseCon = DBconnect.GetConnection())
+                                        {
+                                            licenseCon.Open();
+                                            using (SqlCommand licenseCmd = new SqlCommand(@"
+                    SELECT licenseKey FROM usergamestbl
+                    WHERE userID = @userID AND gameID = @gameID
+                ", licenseCon))
+                                            {
+                                                licenseCmd.Parameters.AddWithValue("@userID", Login.userID);
+                                                licenseCmd.Parameters.AddWithValue("@gameID", row["gameID"]);
+
+                                                object result = licenseCmd.ExecuteScalar();
+                                                if (result != null)
+                                                {
+                                                    licenseKeyFromDB = result.ToString();
+                                                }
+                                            }
+                                        }
+
+                                        if (string.IsNullOrEmpty(licenseKeyFromDB))
+                                        {
+                                            MessageBox.Show("No valid license found. Please acquire the game first.", "License Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            return;
+                                        }
+
+                                        // If license key exists, allow launching
                                         MessageBox.Show($"Launching: {targetExe}");
 
                                         Process.Start(new ProcessStartInfo
@@ -192,6 +241,7 @@ namespace GameServer_Management.Forms
                                     }
                                 };
                             }
+
                             else
                             {
 
@@ -238,6 +288,9 @@ namespace GameServer_Management.Forms
                                     {
                                         MessageBox.Show($"Download failed:\n{ex.Message}", "Error");
                                     }
+
+
+
                                 };
 
 

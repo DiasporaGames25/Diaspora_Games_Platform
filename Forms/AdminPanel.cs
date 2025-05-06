@@ -20,7 +20,9 @@ namespace GameServer_Management.Forms
         private UserDB userDB = new UserDB();
         private AdminDB adminDB = new AdminDB();
         private Download download = new Download();
-        
+        private GameArchive gameArchive = new GameArchive();
+
+
         private Home adminhome;
         private bool isAdmin;
 
@@ -181,6 +183,8 @@ namespace GameServer_Management.Forms
             obj = this;
             downloadbtn.Visible = false;
             userpanel.Visible = false;
+            archivebtn.Visible = false;
+
 
             if (!isAdmin)
             {
@@ -301,6 +305,19 @@ namespace GameServer_Management.Forms
             LoadForm(download);
             Button(downloadbtn);
         }
+
+        //added May 1 2025
+        private void archivebtn_Click(object sender, EventArgs e)
+        {
+            if (!archivebtn.Checked)
+            {
+                archivebtn.Checked = true;
+                return;
+            }
+            LoadForm(gameArchive);
+            Button(archivebtn);
+        }
+
 
         private void LoadInfo()
         {

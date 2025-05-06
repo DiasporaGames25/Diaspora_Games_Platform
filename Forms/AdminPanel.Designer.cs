@@ -266,6 +266,8 @@
             this.kryptonPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonPanel1.Controls.Add(this.downloadbtn);
+            this.kryptonPanel1.Controls.Add(this.archivebtn);
+
             this.kryptonPanel1.Controls.Add(this.GameDBbtn);
             this.kryptonPanel1.Controls.Add(this.categoryBtn);
             this.kryptonPanel1.Controls.Add(this.btnHome);
@@ -368,6 +370,32 @@
             this.downloadbtn.Values.Image = ((System.Drawing.Image)(resources.GetObject("downloadbtn.Values.Image")));
             this.downloadbtn.Values.Text = "Downloads";
             this.downloadbtn.Click += new System.EventHandler(this.downloadbtn_Click);
+
+
+            // 
+            // archivebtn
+            // 
+            this.archivebtn = new Krypton.Toolkit.KryptonCheckButton();
+            this.archivebtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.archivebtn.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
+            this.archivebtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.archivebtn.Location = new System.Drawing.Point(3, 347); // Below downloadbtn (which ends at 341 + spacing)
+            this.archivebtn.Name = "archivebtn";
+            this.archivebtn.Size = new System.Drawing.Size(65, 53);
+            this.archivebtn.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(23, 23, 26);
+            this.archivebtn.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(23, 23, 26);
+            this.archivebtn.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.archivebtn.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.archivebtn.StateNormal.Content.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.archivebtn.StateNormal.Content.ShortText.TextV = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.archivebtn.TabIndex = 7;
+            this.archivebtn.Values.Text = "Archive";
+            this.archivebtn.Click += new System.EventHandler(this.archivebtn_Click);
+            
+
+
+
             // 
             // GameDBbtn
             // 
@@ -946,5 +974,12 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
         private CuoreUI.Controls.cuiButton usericonbtn;
         private System.Windows.Forms.Panel mainpanel;
+
+        //added 5/1
+        private Krypton.Toolkit.KryptonCheckButton archivebtn;
+        //public CuoreUI.Controls.cuiButton archivebtn;
+
+
+
     }
 }
