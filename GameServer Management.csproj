@@ -132,8 +132,11 @@
     <Compile Include="Forms\AdminHome.Designer.cs">
       <DependentUpon>AdminHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\GameArchive.cs">
+    <Compile Include="Forms\AddFriend.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddFriend.Designer.cs">
+      <DependentUpon>AddFriend.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Home.cs">
       <SubType>Form</SubType>
@@ -183,6 +186,18 @@
     <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Marketplace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Marketplace.Designer.cs">
+      <DependentUpon>Marketplace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SellToFriendForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SellToFriendForm.Designer.cs">
+      <DependentUpon>SellToFriendForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +209,18 @@
     </Compile>
     <Compile Include="Forms\UserDB.Designer.cs">
       <DependentUpon>UserDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GameWallet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GameWallet.Designer.cs">
+      <DependentUpon>GameWallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ViewFriends.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ViewFriends.Designer.cs">
+      <DependentUpon>ViewFriends.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -214,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddCategory.resx">
       <DependentUpon>AddCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddFriend.resx">
+      <DependentUpon>AddFriend.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddGames.resx">
       <DependentUpon>AddGames.cs</DependentUpon>

@@ -19,8 +19,17 @@ namespace GameServer_Management.Forms
         private AdminHome adminHome = new AdminHome();
         private UserDB userDB = new UserDB();
         private AdminDB adminDB = new AdminDB();
+
+
+        //add page definitions
         private Download download = new Download();
-        private GameArchive gameArchive = new GameArchive();
+        private GameWallet gameWallet = new GameWallet();
+        private AddFriend addFriend = new AddFriend();
+        private ViewFriends viewFriends = new ViewFriends();
+
+
+
+
 
 
         private Home adminhome;
@@ -29,6 +38,10 @@ namespace GameServer_Management.Forms
         public AdminPanel(bool isAdmin)
         {
             InitializeComponent();
+
+
+
+
             this.AutoScaleDimensions = new SizeF(96F, 96F);
             this.AutoScaleMode = AutoScaleMode.Dpi;
             cb = btnHome;
@@ -40,6 +53,10 @@ namespace GameServer_Management.Forms
         public AdminPanel(bool isAdmin, string username)
         {
             InitializeComponent();
+
+
+
+
             this.AutoScaleDimensions = new SizeF(96F, 96F);
             this.AutoScaleMode = AutoScaleMode.Dpi;
             cb = btnHome;
@@ -61,6 +78,7 @@ namespace GameServer_Management.Forms
             }
             return obj;
         }
+
         public void LoadForm(Form f)
         {
             if (f == null)
@@ -183,7 +201,7 @@ namespace GameServer_Management.Forms
             obj = this;
             downloadbtn.Visible = false;
             userpanel.Visible = false;
-            archivebtn.Visible = false;
+            walletbtn.Visible = false;
 
 
             if (!isAdmin)
@@ -194,6 +212,17 @@ namespace GameServer_Management.Forms
                 userDBbtn.Visible = false;
                 userpanel.Visible = true;
                 downloadbtn.Visible = true;
+
+
+                //game Archive button added 5/7/25
+                walletbtn.Visible = true;
+
+                addFriendBtn.Visible = true;
+
+                viewFriendsBtn.Visible = true;
+
+
+
                 kryptonPanel1.Location = new Point(0, 318);
                 downloadbtn.Location = new Point(3, 62);
             }
@@ -307,16 +336,38 @@ namespace GameServer_Management.Forms
         }
 
         //added May 1 2025
-        private void archivebtn_Click(object sender, EventArgs e)
+        private void walletbtn_Click(object sender, EventArgs e)
         {
-            if (!archivebtn.Checked)
+            if (!walletbtn.Checked)
             {
-                archivebtn.Checked = true;
+                walletbtn.Checked = true;
                 return;
             }
-            LoadForm(gameArchive);
-            Button(archivebtn);
+            LoadForm(gameWallet);
+            Button(walletbtn);
         }
+        //PAGE DEFINITIIONS 
+        private void addFriendBtn_Click(object sender, EventArgs e)
+        {
+            if (!addFriendBtn.Checked)
+            {
+                addFriendBtn.Checked = true;
+                return;
+            }
+            LoadForm(addFriend);
+            Button(addFriendBtn);
+        }
+        private void viewFriendsBtn_Click(object sender, EventArgs e)
+        {
+            if (!viewFriendsBtn.Checked)
+            {
+                viewFriendsBtn.Checked = true;
+                return;
+            }
+            LoadForm(viewFriends);
+            Button(viewFriendsBtn);
+        }
+
 
 
         private void LoadInfo()
@@ -402,6 +453,38 @@ namespace GameServer_Management.Forms
         private void usertxt_Click(object sender, EventArgs e)
         {
             LoadInfo();
+        }
+
+
+
+
+        //added 5/13/25
+        public void ReloadDownloadPage()
+        {
+            download.LoadUserLibrary();
+        }
+
+        public void RefreshGameViews()
+        {
+            if (Application.OpenForms["Download"] is Download downloadForm)
+            {
+                downloadForm.LoadUserLibrary();
+            }
+
+            if (Application.OpenForms["GameWallet"] is GameWallet walletForm)
+            {
+                walletForm.LoadWalletGames();
+            }
+        }
+
+        private void viewFriendsBtn_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonCheckButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

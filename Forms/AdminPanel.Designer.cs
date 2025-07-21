@@ -1,4 +1,9 @@
-﻿namespace GameServer_Management.Forms
+﻿using Krypton.Toolkit;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace GameServer_Management.Forms
 {
     partial class AdminPanel
     {
@@ -37,7 +42,10 @@
             this.usertxt = new System.Windows.Forms.Label();
             this.logout = new Krypton.Toolkit.KryptonCheckButton();
             this.kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
+            this.viewFriendsBtn = new Krypton.Toolkit.KryptonCheckButton();
             this.downloadbtn = new Krypton.Toolkit.KryptonCheckButton();
+            this.walletbtn = new Krypton.Toolkit.KryptonCheckButton();
+            this.addFriendBtn = new Krypton.Toolkit.KryptonCheckButton();
             this.GameDBbtn = new Krypton.Toolkit.KryptonCheckButton();
             this.categoryBtn = new Krypton.Toolkit.KryptonCheckButton();
             this.btnHome = new Krypton.Toolkit.KryptonCheckButton();
@@ -78,7 +86,8 @@
             this.cuiButton1.ImageExpand = new System.Drawing.Point(0, 0);
             this.cuiButton1.ImageOffset = new System.Drawing.Point(0, 0);
             this.cuiButton1.ImageTint = System.Drawing.Color.White;
-            this.cuiButton1.Location = new System.Drawing.Point(1309, 8);
+            this.cuiButton1.Location = new System.Drawing.Point(1964, 12);
+            this.cuiButton1.Margin = new System.Windows.Forms.Padding(4);
             this.cuiButton1.Name = "cuiButton1";
             this.cuiButton1.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(69)))));
             this.cuiButton1.NormalOutline = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(69)))));
@@ -87,7 +96,7 @@
             this.cuiButton1.PressedImageTint = System.Drawing.Color.White;
             this.cuiButton1.PressedOutline = System.Drawing.Color.Coral;
             this.cuiButton1.Rounding = new System.Windows.Forms.Padding(8);
-            this.cuiButton1.Size = new System.Drawing.Size(23, 24);
+            this.cuiButton1.Size = new System.Drawing.Size(34, 36);
             this.cuiButton1.TabIndex = 2;
             this.cuiButton1.TextOffset = new System.Drawing.Point(0, 0);
             this.cuiButton1.Click += new System.EventHandler(this.cuiButton1_Click);
@@ -100,9 +109,9 @@
             this.slidePanel.Controls.Add(this.menubtn);
             this.slidePanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.slidePanel.Location = new System.Drawing.Point(0, 0);
-            this.slidePanel.Margin = new System.Windows.Forms.Padding(1);
+            this.slidePanel.Margin = new System.Windows.Forms.Padding(2);
             this.slidePanel.Name = "slidePanel";
-            this.slidePanel.Size = new System.Drawing.Size(70, 798);
+            this.slidePanel.Size = new System.Drawing.Size(105, 1197);
             this.slidePanel.TabIndex = 3;
             // 
             // userpanel
@@ -110,9 +119,10 @@
             this.userpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
             this.userpanel.Controls.Add(this.usericonbtn);
             this.userpanel.Controls.Add(this.usertxt);
-            this.userpanel.Location = new System.Drawing.Point(1, 675);
+            this.userpanel.Location = new System.Drawing.Point(2, 1012);
+            this.userpanel.Margin = new System.Windows.Forms.Padding(4);
             this.userpanel.Name = "userpanel";
-            this.userpanel.Size = new System.Drawing.Size(230, 53);
+            this.userpanel.Size = new System.Drawing.Size(345, 80);
             this.userpanel.TabIndex = 8;
             this.userpanel.Click += new System.EventHandler(this.userpanel_Click);
             // 
@@ -134,7 +144,8 @@
             this.usericonbtn.ImageExpand = new System.Drawing.Point(5, 5);
             this.usericonbtn.ImageOffset = new System.Drawing.Point(0, 0);
             this.usericonbtn.ImageTint = System.Drawing.Color.White;
-            this.usericonbtn.Location = new System.Drawing.Point(11, 3);
+            this.usericonbtn.Location = new System.Drawing.Point(16, 4);
+            this.usericonbtn.Margin = new System.Windows.Forms.Padding(4);
             this.usericonbtn.Name = "usericonbtn";
             this.usericonbtn.NormalBackground = System.Drawing.Color.SlateGray;
             this.usericonbtn.NormalOutline = System.Drawing.Color.Empty;
@@ -143,7 +154,7 @@
             this.usericonbtn.PressedImageTint = System.Drawing.Color.White;
             this.usericonbtn.PressedOutline = System.Drawing.Color.Empty;
             this.usericonbtn.Rounding = new System.Windows.Forms.Padding(15);
-            this.usericonbtn.Size = new System.Drawing.Size(46, 45);
+            this.usericonbtn.Size = new System.Drawing.Size(69, 68);
             this.usericonbtn.TabIndex = 9;
             this.usericonbtn.TextOffset = new System.Drawing.Point(0, 0);
             this.usericonbtn.Click += new System.EventHandler(this.usericonbtn_Click);
@@ -153,9 +164,10 @@
             this.usertxt.AutoSize = true;
             this.usertxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usertxt.ForeColor = System.Drawing.Color.White;
-            this.usertxt.Location = new System.Drawing.Point(76, 15);
+            this.usertxt.Location = new System.Drawing.Point(114, 22);
+            this.usertxt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.usertxt.Name = "usertxt";
-            this.usertxt.Size = new System.Drawing.Size(110, 25);
+            this.usertxt.Size = new System.Drawing.Size(164, 37);
             this.usertxt.TabIndex = 1;
             this.usertxt.Text = "Username";
             this.usertxt.Click += new System.EventHandler(this.usertxt_Click);
@@ -166,11 +178,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.logout.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
             this.logout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logout.Location = new System.Drawing.Point(1, 731);
+            this.logout.Location = new System.Drawing.Point(2, 1096);
+            this.logout.Margin = new System.Windows.Forms.Padding(4);
             this.logout.Name = "logout";
             this.logout.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
             this.logout.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            this.logout.Size = new System.Drawing.Size(63, 53);
+            this.logout.Size = new System.Drawing.Size(94, 80);
             this.logout.StateCheckedNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(115)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
             this.logout.StateCheckedNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(115)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
             this.logout.StateCheckedNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
@@ -265,32 +278,49 @@
             // 
             this.kryptonPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.kryptonPanel1.Controls.Add(this.viewFriendsBtn);
             this.kryptonPanel1.Controls.Add(this.downloadbtn);
-            this.kryptonPanel1.Controls.Add(this.archivebtn);
-
+            this.kryptonPanel1.Controls.Add(this.walletbtn);
+            this.kryptonPanel1.Controls.Add(this.addFriendBtn);
             this.kryptonPanel1.Controls.Add(this.GameDBbtn);
             this.kryptonPanel1.Controls.Add(this.categoryBtn);
             this.kryptonPanel1.Controls.Add(this.btnHome);
             this.kryptonPanel1.Controls.Add(this.adminDBbtn);
             this.kryptonPanel1.Controls.Add(this.userDBbtn);
-            this.kryptonPanel1.Location = new System.Drawing.Point(2, 190);
-            this.kryptonPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.kryptonPanel1.Location = new System.Drawing.Point(3, 84);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.TabLowProfile;
-            this.kryptonPanel1.Size = new System.Drawing.Size(68, 358);
+            this.kryptonPanel1.Size = new System.Drawing.Size(102, 1201);
             this.kryptonPanel1.TabIndex = 0;
             // 
-            // downloadbtn
+            // viewFriendsBtn
+            // 
+            this.viewFriendsBtn.AllowUncheck = false;
+            this.viewFriendsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.viewFriendsBtn.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
+            this.viewFriendsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.viewFriendsBtn.Location = new System.Drawing.Point(-3, 345);
+            this.viewFriendsBtn.Name = "viewFriendsBtn";
+            this.viewFriendsBtn.Size = new System.Drawing.Size(105, 80);
+            this.viewFriendsBtn.StateNormal.Content.LongText.Color1 = System.Drawing.Color.Black;
+            this.viewFriendsBtn.StateNormal.Content.LongText.Color2 = System.Drawing.Color.Black;
+            this.viewFriendsBtn.TabIndex = 10;
+            this.viewFriendsBtn.Values.Text = "View Friends";
+            this.viewFriendsBtn.Click += new System.EventHandler(this.viewFriendsBtn_Click);
+            // 
+            // downloadbtn  
             // 
             this.downloadbtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.downloadbtn.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
             this.downloadbtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.downloadbtn.Location = new System.Drawing.Point(3, 288);
+            this.downloadbtn.Location = new System.Drawing.Point(4, 432);
+            this.downloadbtn.Margin = new System.Windows.Forms.Padding(4);
             this.downloadbtn.Name = "downloadbtn";
             this.downloadbtn.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
             this.downloadbtn.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            this.downloadbtn.Size = new System.Drawing.Size(65, 53);
+            this.downloadbtn.Size = new System.Drawing.Size(98, 80);
             this.downloadbtn.StateCheckedNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(115)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
             this.downloadbtn.StateCheckedNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(115)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
             this.downloadbtn.StateCheckedNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
@@ -370,32 +400,46 @@
             this.downloadbtn.Values.Image = ((System.Drawing.Image)(resources.GetObject("downloadbtn.Values.Image")));
             this.downloadbtn.Values.Text = "Downloads";
             this.downloadbtn.Click += new System.EventHandler(this.downloadbtn_Click);
-
-
             // 
-            // archivebtn
+            // walletbtn
             // 
-            this.archivebtn = new Krypton.Toolkit.KryptonCheckButton();
-            this.archivebtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.walletbtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.archivebtn.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
-            this.archivebtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.archivebtn.Location = new System.Drawing.Point(3, 347); // Below downloadbtn (which ends at 341 + spacing)
-            this.archivebtn.Name = "archivebtn";
-            this.archivebtn.Size = new System.Drawing.Size(65, 53);
-            this.archivebtn.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(23, 23, 26);
-            this.archivebtn.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(23, 23, 26);
-            this.archivebtn.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.archivebtn.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.archivebtn.StateNormal.Content.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.archivebtn.StateNormal.Content.ShortText.TextV = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.archivebtn.TabIndex = 7;
-            this.archivebtn.Values.Text = "Archive";
-            this.archivebtn.Click += new System.EventHandler(this.archivebtn_Click);
-            
-
-
-
+            this.walletbtn.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
+            this.walletbtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.walletbtn.Location = new System.Drawing.Point(4, 175);
+            this.walletbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.walletbtn.Name = "walletbtn";
+            this.walletbtn.Size = new System.Drawing.Size(98, 80);
+            this.walletbtn.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            this.walletbtn.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            this.walletbtn.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.walletbtn.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.walletbtn.StateNormal.Content.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.walletbtn.StateNormal.Content.ShortText.TextV = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.walletbtn.TabIndex = 7;
+            this.walletbtn.Values.Text = "Wallet";
+            this.walletbtn.Click += new System.EventHandler(this.walletbtn_Click);
+            // 
+            // addFriendBtn
+            // 
+            this.addFriendBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addFriendBtn.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
+            this.addFriendBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addFriendBtn.Location = new System.Drawing.Point(4, 260);
+            this.addFriendBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.addFriendBtn.Name = "addFriendBtn";
+            this.addFriendBtn.Size = new System.Drawing.Size(98, 80);
+            this.addFriendBtn.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            this.addFriendBtn.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            this.addFriendBtn.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.addFriendBtn.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.addFriendBtn.StateNormal.Content.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
+            this.addFriendBtn.StateNormal.Content.ShortText.TextV = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.addFriendBtn.TabIndex = 9;
+            this.addFriendBtn.Values.Text = "Add Friend";
+            this.addFriendBtn.Click += new System.EventHandler(this.addFriendBtn_Click);
             // 
             // GameDBbtn
             // 
@@ -403,11 +447,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GameDBbtn.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
             this.GameDBbtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GameDBbtn.Location = new System.Drawing.Point(3, 180);
+            this.GameDBbtn.Location = new System.Drawing.Point(4, 270);
+            this.GameDBbtn.Margin = new System.Windows.Forms.Padding(4);
             this.GameDBbtn.Name = "GameDBbtn";
             this.GameDBbtn.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
             this.GameDBbtn.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            this.GameDBbtn.Size = new System.Drawing.Size(81, 53);
+            this.GameDBbtn.Size = new System.Drawing.Size(122, 80);
             this.GameDBbtn.StateCheckedNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(115)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
             this.GameDBbtn.StateCheckedNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(115)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
             this.GameDBbtn.StateCheckedNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
@@ -494,11 +539,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.categoryBtn.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
             this.categoryBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.categoryBtn.Location = new System.Drawing.Point(3, 239);
+            this.categoryBtn.Location = new System.Drawing.Point(4, 358);
+            this.categoryBtn.Margin = new System.Windows.Forms.Padding(4);
             this.categoryBtn.Name = "categoryBtn";
             this.categoryBtn.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
             this.categoryBtn.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            this.categoryBtn.Size = new System.Drawing.Size(65, 53);
+            this.categoryBtn.Size = new System.Drawing.Size(98, 80);
             this.categoryBtn.StateCheckedNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(115)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
             this.categoryBtn.StateCheckedNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(115)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
             this.categoryBtn.StateCheckedNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
@@ -585,11 +631,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnHome.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
             this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHome.Location = new System.Drawing.Point(3, 3);
+            this.btnHome.Location = new System.Drawing.Point(4, 4);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(4);
             this.btnHome.Name = "btnHome";
             this.btnHome.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
             this.btnHome.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            this.btnHome.Size = new System.Drawing.Size(81, 53);
+            this.btnHome.Size = new System.Drawing.Size(122, 80);
             this.btnHome.StateCheckedNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(115)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
             this.btnHome.StateCheckedNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(115)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
             this.btnHome.StateCheckedNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
@@ -676,11 +723,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.adminDBbtn.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
             this.adminDBbtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.adminDBbtn.Location = new System.Drawing.Point(3, 121);
+            this.adminDBbtn.Location = new System.Drawing.Point(4, 182);
+            this.adminDBbtn.Margin = new System.Windows.Forms.Padding(4);
             this.adminDBbtn.Name = "adminDBbtn";
             this.adminDBbtn.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
             this.adminDBbtn.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            this.adminDBbtn.Size = new System.Drawing.Size(81, 53);
+            this.adminDBbtn.Size = new System.Drawing.Size(122, 80);
             this.adminDBbtn.StateCheckedNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(115)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
             this.adminDBbtn.StateCheckedNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(115)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
             this.adminDBbtn.StateCheckedNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
@@ -767,11 +815,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.userDBbtn.ButtonStyle = Krypton.Toolkit.ButtonStyle.NavigatorMini;
             this.userDBbtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.userDBbtn.Location = new System.Drawing.Point(3, 62);
+            this.userDBbtn.Location = new System.Drawing.Point(4, 93);
+            this.userDBbtn.Margin = new System.Windows.Forms.Padding(4);
             this.userDBbtn.Name = "userDBbtn";
             this.userDBbtn.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
             this.userDBbtn.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            this.userDBbtn.Size = new System.Drawing.Size(81, 53);
+            this.userDBbtn.Size = new System.Drawing.Size(122, 80);
             this.userDBbtn.StateCheckedNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(115)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
             this.userDBbtn.StateCheckedNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(115)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
             this.userDBbtn.StateCheckedNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
@@ -871,8 +920,7 @@
             this.menubtn.ImageExpand = new System.Drawing.Point(5, 5);
             this.menubtn.ImageOffset = new System.Drawing.Point(0, 0);
             this.menubtn.ImageTint = System.Drawing.Color.White;
-            this.menubtn.Location = new System.Drawing.Point(12, 12);
-            this.menubtn.Margin = new System.Windows.Forms.Padding(2);
+            this.menubtn.Location = new System.Drawing.Point(18, 18);
             this.menubtn.Name = "menubtn";
             this.menubtn.NormalBackground = System.Drawing.Color.Transparent;
             this.menubtn.NormalOutline = System.Drawing.Color.Transparent;
@@ -881,7 +929,7 @@
             this.menubtn.PressedImageTint = System.Drawing.Color.White;
             this.menubtn.PressedOutline = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(109)))), ((int)(((byte)(118)))));
             this.menubtn.Rounding = new System.Windows.Forms.Padding(10);
-            this.menubtn.Size = new System.Drawing.Size(40, 40);
+            this.menubtn.Size = new System.Drawing.Size(60, 60);
             this.menubtn.TabIndex = 1;
             this.menubtn.TextOffset = new System.Drawing.Point(0, 0);
             this.menubtn.Click += new System.EventHandler(this.menubtn_Click);
@@ -889,11 +937,11 @@
             // mainpanel
             // 
             this.mainpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.mainpanel.Location = new System.Drawing.Point(72, 40);
-            this.mainpanel.Margin = new System.Windows.Forms.Padding(1);
+            this.mainpanel.Location = new System.Drawing.Point(108, 60);
+            this.mainpanel.Margin = new System.Windows.Forms.Padding(2);
             this.mainpanel.Name = "mainpanel";
             this.mainpanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.mainpanel.Size = new System.Drawing.Size(1286, 784);
+            this.mainpanel.Size = new System.Drawing.Size(1929, 1176);
             this.mainpanel.TabIndex = 5;
             // 
             // bunifuElipse1
@@ -928,15 +976,16 @@
             // 
             // AdminPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
-            this.ClientSize = new System.Drawing.Size(1355, 798);
+            this.ClientSize = new System.Drawing.Size(2032, 1197);
             this.Controls.Add(this.mainpanel);
             this.Controls.Add(this.slidePanel);
             this.Controls.Add(this.cuiButton1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminPanel";
@@ -975,11 +1024,11 @@
         private CuoreUI.Controls.cuiButton usericonbtn;
         private System.Windows.Forms.Panel mainpanel;
 
-        //added 5/1
-        private Krypton.Toolkit.KryptonCheckButton archivebtn;
-        //public CuoreUI.Controls.cuiButton archivebtn;
 
 
-
+        //PAGE DEFINITIONS 
+        private KryptonCheckButton walletbtn;
+        private KryptonCheckButton addFriendBtn;
+        private KryptonCheckButton viewFriendsBtn;
     }
 }

@@ -1,5 +1,6 @@
 ﻿namespace GameServer_Management.Forms
 {
+
     partial class Home
     {
         /// <summary>
@@ -35,26 +36,7 @@
             this.CategoryPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.searchtxtbox = new Krypton.Toolkit.KryptonTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-
-
-            //added 4/29
             this.balanceLabel = new System.Windows.Forms.Label();
-            this.balanceLabel.AutoSize = true;
-            this.balanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.balanceLabel.ForeColor = System.Drawing.Color.White;
-            this.balanceLabel.Location = new System.Drawing.Point(830, 25); // Adjust as needed
-            this.balanceLabel.Name = "balanceLabel";
-            this.balanceLabel.Size = new System.Drawing.Size(80, 24);
-            this.balanceLabel.Text = "$100.00";
-            this.Controls.Add(this.balanceLabel);
-
-
-
-
-
-
-
-
             this.loadingtimer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -116,9 +98,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(33, 190);
+            this.label1.Location = new System.Drawing.Point(75, 438);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(197, 31);
+            this.label1.Size = new System.Drawing.Size(441, 71);
             this.label1.TabIndex = 1;
             this.label1.Text = "You might like";
             // 
@@ -128,18 +111,20 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listPanel.AutoScroll = true;
-            this.listPanel.Location = new System.Drawing.Point(24, 238);
+            this.listPanel.Location = new System.Drawing.Point(54, 549);
+            this.listPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listPanel.Name = "listPanel";
-            this.listPanel.Size = new System.Drawing.Size(1106, 400);
+            this.listPanel.Size = new System.Drawing.Size(2489, 1779);
             this.listPanel.TabIndex = 9;
             // 
             // CategoryPanel
             // 
             this.CategoryPanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.CategoryPanel.AutoScroll = true;
-            this.CategoryPanel.Location = new System.Drawing.Point(1023, 294);
+            this.CategoryPanel.Location = new System.Drawing.Point(2301, 678);
+            this.CategoryPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CategoryPanel.Name = "CategoryPanel";
-            this.CategoryPanel.Size = new System.Drawing.Size(284, 514);
+            this.CategoryPanel.Size = new System.Drawing.Size(639, 1187);
             this.CategoryPanel.TabIndex = 10;
             // 
             // searchtxtbox
@@ -147,11 +132,10 @@
             this.searchtxtbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchtxtbox.CornerRoundingRadius = 20F;
             this.searchtxtbox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchtxtbox.Location = new System.Drawing.Point(935, 13);
-            this.searchtxtbox.Margin = new System.Windows.Forms.Padding(2);
+            this.searchtxtbox.Location = new System.Drawing.Point(1402, 20);
             this.searchtxtbox.Name = "searchtxtbox";
             this.searchtxtbox.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.searchtxtbox.Size = new System.Drawing.Size(291, 48);
+            this.searchtxtbox.Size = new System.Drawing.Size(436, 60);
             this.searchtxtbox.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
             this.searchtxtbox.StateActive.Border.Color1 = System.Drawing.Color.Transparent;
             this.searchtxtbox.StateActive.Border.Color2 = System.Drawing.Color.Transparent;
@@ -190,12 +174,25 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.MediumPurple;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1183, 20);
+            this.pictureBox1.Location = new System.Drawing.Point(1774, 31);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(35, 34);
+            this.pictureBox1.Size = new System.Drawing.Size(52, 52);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
+            // 
+            // balanceLabel
+            // 
+            this.balanceLabel.AutoSize = true;
+            this.balanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.balanceLabel.ForeColor = System.Drawing.Color.White;
+            this.balanceLabel.Location = new System.Drawing.Point(1245, 38);
+            this.balanceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.balanceLabel.Name = "balanceLabel";
+            this.balanceLabel.Size = new System.Drawing.Size(118, 32);
+            this.balanceLabel.TabIndex = 0;
+            this.balanceLabel.Text = "$100.00";
             // 
             // loadingtimer
             // 
@@ -219,45 +216,50 @@
             this.panel1.Controls.Add(this.listPanel);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox6);
-            this.panel1.Location = new System.Drawing.Point(54, 66);
+            this.panel1.Location = new System.Drawing.Point(81, 102);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1316, 720);
+            this.panel1.Size = new System.Drawing.Size(1974, 1108);
             this.panel1.TabIndex = 22;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(172)))), ((int)(((byte)(214)))));
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Location = new System.Drawing.Point(1117, 16);
+            this.panel5.Location = new System.Drawing.Point(1676, 25);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(90, 42);
+            this.panel5.Size = new System.Drawing.Size(135, 65);
             this.panel5.TabIndex = 25;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(22, 11);
+            this.label4.Location = new System.Drawing.Point(33, 17);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 18);
+            this.label4.Size = new System.Drawing.Size(80, 29);
             this.label4.TabIndex = 0;
             this.label4.Text = "FAQ ?";
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(172)))), ((int)(((byte)(214)))));
-            this.panel6.Location = new System.Drawing.Point(1120, 27);
+            this.panel6.Location = new System.Drawing.Point(1120, 28);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(57, 31);
+            this.panel6.Size = new System.Drawing.Size(57, 32);
             this.panel6.TabIndex = 26;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.MediumPurple;
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(496, 159);
+            this.panel3.Location = new System.Drawing.Point(744, 245);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(144, 30);
+            this.panel3.Size = new System.Drawing.Size(216, 46);
             this.panel3.TabIndex = 11;
             // 
             // label3
@@ -265,9 +267,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(37, 5);
+            this.label3.Location = new System.Drawing.Point(56, 8);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 20);
+            this.label3.Size = new System.Drawing.Size(112, 29);
             this.label3.TabIndex = 0;
             this.label3.Text = "Windows";
             // 
@@ -278,17 +281,19 @@
             this.panel4.Controls.Add(this.pictureBox3);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.pictureBox2);
-            this.panel4.Location = new System.Drawing.Point(701, 16);
+            this.panel4.Location = new System.Drawing.Point(1052, 25);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(337, 138);
+            this.panel4.Size = new System.Drawing.Size(506, 212);
             this.panel4.TabIndex = 14;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(161, 0);
+            this.pictureBox4.Location = new System.Drawing.Point(242, 0);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(73, 138);
+            this.pictureBox4.Size = new System.Drawing.Size(110, 212);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 4;
             this.pictureBox4.TabStop = false;
@@ -296,9 +301,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(230, 0);
+            this.pictureBox3.Location = new System.Drawing.Point(345, 0);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(112, 147);
+            this.pictureBox3.Size = new System.Drawing.Size(168, 226);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 3;
             this.pictureBox3.TabStop = false;
@@ -309,9 +315,10 @@
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(230)))), ((int)(((byte)(237)))));
-            this.label2.Location = new System.Drawing.Point(14, 96);
+            this.label2.Location = new System.Drawing.Point(21, 148);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 31);
+            this.label2.Size = new System.Drawing.Size(207, 47);
             this.label2.TabIndex = 1;
             this.label2.Text = "Upcoming";
             // 
@@ -319,8 +326,9 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(165, 138);
+            this.pictureBox2.Size = new System.Drawing.Size(248, 212);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
@@ -331,9 +339,10 @@
             this.cuiLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuiLabel1.ForeColor = System.Drawing.Color.White;
             this.cuiLabel1.HorizontalAlignment = CuoreUI.Controls.cuiLabel.HorizontalAlignments.Center;
-            this.cuiLabel1.Location = new System.Drawing.Point(983, 238);
+            this.cuiLabel1.Location = new System.Drawing.Point(983, 244);
+            this.cuiLabel1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.cuiLabel1.Name = "cuiLabel1";
-            this.cuiLabel1.Size = new System.Drawing.Size(287, 57);
+            this.cuiLabel1.Size = new System.Drawing.Size(287, 59);
             this.cuiLabel1.TabIndex = 13;
             // 
             // panel2
@@ -345,9 +354,10 @@
             this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.slideImageBox);
             this.panel2.Controls.Add(this.nameLabel);
-            this.panel2.Location = new System.Drawing.Point(24, 0);
+            this.panel2.Location = new System.Drawing.Point(36, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(660, 175);
+            this.panel2.Size = new System.Drawing.Size(990, 269);
             this.panel2.TabIndex = 10;
             // 
             // gameDesc
@@ -357,18 +367,20 @@
             this.gameDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gameDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(48)))));
             this.gameDesc.HorizontalAlignment = CuoreUI.Controls.cuiLabel.HorizontalAlignments.Left;
-            this.gameDesc.Location = new System.Drawing.Point(211, 61);
+            this.gameDesc.Location = new System.Drawing.Point(316, 94);
+            this.gameDesc.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.gameDesc.Name = "gameDesc";
-            this.gameDesc.Size = new System.Drawing.Size(365, 62);
+            this.gameDesc.Size = new System.Drawing.Size(548, 95);
             this.gameDesc.TabIndex = 12;
             // 
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(274, 80);
+            this.pictureBox5.Location = new System.Drawing.Point(411, 123);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(196, 147);
+            this.pictureBox5.Size = new System.Drawing.Size(294, 226);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 13;
             this.pictureBox5.TabStop = false;
@@ -376,9 +388,10 @@
             // slideImageBox
             // 
             this.slideImageBox.Image = ((System.Drawing.Image)(resources.GetObject("slideImageBox.Image")));
-            this.slideImageBox.Location = new System.Drawing.Point(0, -23);
+            this.slideImageBox.Location = new System.Drawing.Point(0, -35);
+            this.slideImageBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.slideImageBox.Name = "slideImageBox";
-            this.slideImageBox.Size = new System.Drawing.Size(148, 234);
+            this.slideImageBox.Size = new System.Drawing.Size(222, 360);
             this.slideImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.slideImageBox.TabIndex = 2;
             this.slideImageBox.TabStop = false;
@@ -389,18 +402,20 @@
             this.nameLabel.BackColor = System.Drawing.Color.Transparent;
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(48)))), ((int)(((byte)(77)))));
-            this.nameLabel.Location = new System.Drawing.Point(172, 16);
+            this.nameLabel.Location = new System.Drawing.Point(258, 25);
+            this.nameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(311, 31);
+            this.nameLabel.Size = new System.Drawing.Size(474, 47);
             this.nameLabel.TabIndex = 1;
             this.nameLabel.Text = "Red Dead Redemption 2";
             // 
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(1019, 30);
+            this.pictureBox6.Location = new System.Drawing.Point(1019, 31);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(169, 145);
+            this.pictureBox6.Size = new System.Drawing.Size(169, 149);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 24;
             this.pictureBox6.TabStop = false;
@@ -447,9 +462,10 @@
             this.panel7.BackColor = System.Drawing.Color.Transparent;
             this.panel7.Controls.Add(this.label5);
             this.panel7.Controls.Add(this.usericonbtn);
-            this.panel7.Location = new System.Drawing.Point(93, 12);
+            this.panel7.Location = new System.Drawing.Point(140, 18);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(200, 39);
+            this.panel7.Size = new System.Drawing.Size(300, 60);
             this.panel7.TabIndex = 23;
             // 
             // label5
@@ -457,9 +473,10 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
-            this.label5.Location = new System.Drawing.Point(49, 7);
+            this.label5.Location = new System.Drawing.Point(74, 11);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 24);
+            this.label5.Size = new System.Drawing.Size(148, 33);
             this.label5.TabIndex = 25;
             this.label5.Text = "GameHub";
             // 
@@ -481,7 +498,8 @@
             this.usericonbtn.ImageExpand = new System.Drawing.Point(15, 15);
             this.usericonbtn.ImageOffset = new System.Drawing.Point(0, 0);
             this.usericonbtn.ImageTint = System.Drawing.Color.White;
-            this.usericonbtn.Location = new System.Drawing.Point(3, -1);
+            this.usericonbtn.Location = new System.Drawing.Point(4, -2);
+            this.usericonbtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.usericonbtn.Name = "usericonbtn";
             this.usericonbtn.NormalBackground = System.Drawing.Color.SlateGray;
             this.usericonbtn.NormalOutline = System.Drawing.Color.Empty;
@@ -490,7 +508,7 @@
             this.usericonbtn.PressedImageTint = System.Drawing.Color.White;
             this.usericonbtn.PressedOutline = System.Drawing.Color.Empty;
             this.usericonbtn.Rounding = new System.Windows.Forms.Padding(15);
-            this.usericonbtn.Size = new System.Drawing.Size(40, 38);
+            this.usericonbtn.Size = new System.Drawing.Size(60, 58);
             this.usericonbtn.TabIndex = 24;
             this.usericonbtn.TextOffset = new System.Drawing.Point(0, 0);
             // 
@@ -514,7 +532,8 @@
             this.bellbtn.ImageExpand = new System.Drawing.Point(12, 12);
             this.bellbtn.ImageOffset = new System.Drawing.Point(0, 0);
             this.bellbtn.ImageTint = System.Drawing.Color.White;
-            this.bellbtn.Location = new System.Drawing.Point(1230, 17);
+            this.bellbtn.Location = new System.Drawing.Point(1845, 26);
+            this.bellbtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bellbtn.Name = "bellbtn";
             this.bellbtn.NormalBackground = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(187)))), ((int)(((byte)(196)))));
             this.bellbtn.NormalOutline = System.Drawing.Color.Empty;
@@ -523,52 +542,10 @@
             this.bellbtn.PressedImageTint = System.Drawing.Color.White;
             this.bellbtn.PressedOutline = System.Drawing.Color.SlateGray;
             this.bellbtn.Rounding = new System.Windows.Forms.Padding(15);
-            this.bellbtn.Size = new System.Drawing.Size(40, 38);
+            this.bellbtn.Size = new System.Drawing.Size(60, 58);
             this.bellbtn.TabIndex = 25;
             this.bellbtn.TextOffset = new System.Drawing.Point(0, 0);
             this.bellbtn.Click += new System.EventHandler(this.bellbtn_Click);
-
-
-
-
-            //added 5/1
-            // Archive Button            //this.archivebtn = new CuoreUI.Controls.cuiButton();
-            //this.archivebtn.CheckButton = false;
-            //this.archivebtn.Checked = false;
-            //this.archivebtn.CheckedBackground = System.Drawing.Color.Coral;
-            //this.archivebtn.CheckedImageTint = System.Drawing.Color.White;
-            //this.archivebtn.CheckedOutline = System.Drawing.Color.Silver;
-            //this.archivebtn.Content = "";
-            //this.archivebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            //this.archivebtn.ForeColor = System.Drawing.Color.White;
-            //this.archivebtn.HoverBackground = System.Drawing.Color.White;
-            //this.archivebtn.HoveredImageTint = System.Drawing.Color.White;
-            //this.archivebtn.HoverOutline = System.Drawing.Color.Transparent;
-            ////this.archivebtn.Image = global::GameServer_Management.Properties.Resources.archive; // use your icon
-            //this.archivebtn.ImageAutoCenter = true;
-            //this.archivebtn.ImageExpand = new System.Drawing.Point(15, 15);
-            //this.archivebtn.ImageOffset = new System.Drawing.Point(0, 0);
-            //this.archivebtn.ImageTint = System.Drawing.Color.White;
-            //this.archivebtn.Location = new System.Drawing.Point(10, 130); // Position below download button
-            //this.archivebtn.Name = "archivebtn";
-            //this.archivebtn.NormalBackground = System.Drawing.Color.Transparent;
-            //this.archivebtn.NormalOutline = System.Drawing.Color.Empty;
-            //this.archivebtn.OutlineThickness = 3F;
-            //this.archivebtn.PressedBackground = System.Drawing.Color.MediumPurple;
-            //this.archivebtn.PressedImageTint = System.Drawing.Color.White;
-            //this.archivebtn.PressedOutline = System.Drawing.Color.Empty;
-            //this.archivebtn.Rounding = new System.Windows.Forms.Padding(15);
-            //this.archivebtn.Size = new System.Drawing.Size(40, 38);
-            //this.archivebtn.TabIndex = 99;
-            //this.archivebtn.TextOffset = new System.Drawing.Point(0, 0);
-            //this.archivebtn.Click += new System.EventHandler(this.archivebtn_Click);
-
-            //// Add it to the Form or panel
-            //this.Controls.Add(this.archivebtn); // or use panelX.Controls.Add(this.archivebtn);
-
-
-
-
             // 
             // notificationpanel
             // 
@@ -578,9 +555,10 @@
             this.notificationpanel.Controls.Add(this.label6);
             this.notificationpanel.Controls.Add(this.msglbl);
             this.notificationpanel.Controls.Add(this.pictureBox7);
-            this.notificationpanel.Location = new System.Drawing.Point(966, 62);
+            this.notificationpanel.Location = new System.Drawing.Point(1449, 95);
+            this.notificationpanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.notificationpanel.Name = "notificationpanel";
-            this.notificationpanel.Size = new System.Drawing.Size(310, 187);
+            this.notificationpanel.Size = new System.Drawing.Size(465, 288);
             this.notificationpanel.TabIndex = 27;
             this.notificationpanel.Click += new System.EventHandler(this.notificationpanel_Click);
             // 
@@ -590,9 +568,10 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.LightGray;
-            this.label6.Location = new System.Drawing.Point(119, 160);
+            this.label6.Location = new System.Drawing.Point(178, 246);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 20);
+            this.label6.Size = new System.Drawing.Size(124, 29);
             this.label6.TabIndex = 14;
             this.label6.Text = "Messages";
             // 
@@ -603,18 +582,20 @@
             this.msglbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.msglbl.ForeColor = System.Drawing.Color.White;
             this.msglbl.HorizontalAlignment = CuoreUI.Controls.cuiLabel.HorizontalAlignments.Left;
-            this.msglbl.Location = new System.Drawing.Point(86, 13);
+            this.msglbl.Location = new System.Drawing.Point(129, 20);
+            this.msglbl.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.msglbl.Name = "msglbl";
-            this.msglbl.Size = new System.Drawing.Size(208, 70);
+            this.msglbl.Size = new System.Drawing.Size(312, 108);
             this.msglbl.TabIndex = 13;
             // 
             // pictureBox7
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(13, 13);
+            this.pictureBox7.Location = new System.Drawing.Point(20, 20);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox7.Size = new System.Drawing.Size(90, 92);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 0;
             this.pictureBox7.TabStop = false;
@@ -643,27 +624,30 @@
             this.getGame1.desc = resources.GetString("getGame1.desc");
             this.getGame1.GName = "Assassin’s\\ Creed\\ IV\\ Black\\ Flag";
             this.getGame1.id = 0;
-            this.getGame1.Location = new System.Drawing.Point(772, 45);
+            this.getGame1.Location = new System.Drawing.Point(1158, 69);
+            this.getGame1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.getGame1.Name = "getGame1";
             this.getGame1.Pic = ((System.Drawing.Image)(resources.GetObject("getGame1.Pic")));
             this.getGame1.Price = "";
-            this.getGame1.Size = new System.Drawing.Size(569, 670);
+            this.getGame1.Size = new System.Drawing.Size(854, 1031);
             this.getGame1.TabIndex = 26;
             // 
             // loading
             // 
             this.loading.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.loading.Location = new System.Drawing.Point(517, 317);
+            this.loading.Location = new System.Drawing.Point(776, 488);
+            this.loading.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.loading.Name = "loading";
-            this.loading.Size = new System.Drawing.Size(221, 140);
+            this.loading.Size = new System.Drawing.Size(332, 215);
             this.loading.TabIndex = 21;
             // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.ClientSize = new System.Drawing.Size(1322, 715);
+            this.ClientSize = new System.Drawing.Size(1983, 1100);
+            this.Controls.Add(this.balanceLabel);
             this.Controls.Add(this.notificationpanel);
             this.Controls.Add(this.getGame1);
             this.Controls.Add(this.bellbtn);
@@ -674,6 +658,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminHome";

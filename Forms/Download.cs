@@ -86,19 +86,36 @@ namespace GameServer_Management.Forms
             }
         }
 
-        private void LoadUserLibrary()
+        //added 5/14/25
+        public void RefreshGameViews()
+        {
+            downloadedGamesPanel.Controls.Clear(); // Clear all current UI
+            LoadUserLibrary();                     // Load from DB
+            Download_Load(this, EventArgs.Empty); // Also scan local installed games again
+        }
+
+
+        public void LoadUserLibrary()
         {
             System.Diagnostics.Debug.WriteLine("▶ Entering LoadUserLibrary...");
 
 
-            
+
+
+            //string query = @"
+            //SELECT g.gameID, g.gameName, g.exePath, g.gameFileDir
+            //FROM usergamestbl u
+            //JOIN gamestbl g ON u.gameID = g.gameID
+            //WHERE u.userID = @userID
+            //";
 
             string query = @"
-            SELECT g.gameID, g.gameName, g.exePath, g.gameFileDir
-            FROM usergamestbl u
-            JOIN gamestbl g ON u.gameID = g.gameID
-            WHERE u.userID = @userID
-            ";
+SELECT g.gameID, g.gameName, g.exePath, g.gameFileDir
+FROM usergamestbl u
+JOIN gamestbl g ON u.gameID = g.gameID
+WHERE u.userID = @userID AND u.isArchived = 0
+";
+
 
             System.Diagnostics.Debug.WriteLine("▶ Query: " + query);
 
@@ -165,12 +182,77 @@ namespace GameServer_Management.Forms
                                 Location = new Point(10, 10)
                             };
 
+
+
+                            Button walletButton = new Button
+                            {
+                                Size = new Size(80, 30),
+                                Location = new Point(100, 40), // Right of the Play/Download button
+                                Text = "Wallet"
+                            };
+
+                            walletButton.Click += (senderObj, eventArgs) =>
+                            {
+                                using (SqlConnection innerCon = DBconnect.GetConnection())
+                                {
+                                    innerCon.Open();
+                                    using (SqlCommand innerCmd = new SqlCommand(@"
+            UPDATE usergamestbl
+            SET isArchived = 1
+            WHERE userID = @userID AND gameID = @gameID", innerCon))
+                                    {
+                                        innerCmd.Parameters.AddWithValue("@userID", Login.userID);
+                                        innerCmd.Parameters.AddWithValue("@gameID", row["gameID"]);
+
+                                        int rowsAffected = innerCmd.ExecuteNonQuery();
+
+                                        //if (rowsAffected > 0)
+                                        //{
+                                        //    MessageBox.Show($"{gameName} has been moved to your wallet!", "Wallet");
+                                        //    RefreshGameViews();
+
+                                        //    // ✅ Update the Wallet page UI too
+                                        //    if (Application.OpenForms["GameWallet"] is GameWallet walletPage)
+                                        //    {
+                                        //        walletPage.RefreshWallet();
+                                        //    }
+                                        //}
+                                        if (rowsAffected > 0)
+                                        {
+                                            MessageBox.Show($"{gameName} has been moved to your wallet!", "Wallet");
+
+                                            RefreshGameViews();
+
+                                            foreach (Form f in Application.OpenForms)
+                                            {
+                                                if (f is GameWallet walletForm)
+                                                {
+                                                    walletForm.RefreshWallet();
+                                                    break;
+                                                }
+                                            }
+                                        }
+
+                                        else
+                                        {
+                                            MessageBox.Show("Failed to move to wallet.", "Error");
+                                        }
+                                    }
+                                }
+                            };
+
+
+
+
+
                             Button actionButton = new Button
                             {
                                 Size = new Size(80, 30),
                                 Location = new Point(10, 40),
                                 Text = isInstalled ? "Play" : "Download"
                             };
+
+
 
                             //if (isInstalled)
                             //{
@@ -282,7 +364,13 @@ namespace GameServer_Management.Forms
                                         }
 
                                         MessageBox.Show($"Downloaded {gameName} successfully!", "Success");
-                                        LoadUserLibrary(); // Refresh UI to show Play button
+
+                                        //LoadUserLibrary(); // Refresh UI to show Play button
+                                        if (Application.OpenForms["AdminPanel"] is AdminPanel adminPanel)
+                                        {
+                                            adminPanel.RefreshGameViews();
+                                        }
+
                                     }
                                     catch (Exception ex)
                                     {
@@ -299,9 +387,16 @@ namespace GameServer_Management.Forms
                                 gamePanel.Controls.Add(lbl);
                             gamePanel.Controls.Add(actionButton);
                             downloadedGamesPanel.Controls.Add(gamePanel);
+                            gamePanel.Controls.Add(walletButton);
+
                         }
+
+
                     }
+
+
                 }
+
             }
         }
 

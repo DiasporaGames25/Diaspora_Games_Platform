@@ -18,6 +18,17 @@ namespace GameServer_Management.Forms
     {
         private AdminPanel adminPanel;
         private KryptonCheckButton cb = new KryptonCheckButton();
+
+
+
+        // Create the Marketplace buttom
+        private Button marketplaceButton;
+
+
+
+
+
+
         List<GameDesc> gameDescList = new List<GameDesc>();
         List<(string imageAddress, string gameName, string gameDescription)> imageData = new List<(string, string, string)>();
         
@@ -157,6 +168,41 @@ namespace GameServer_Management.Forms
                 }catch (Exception ex) { MessageBox.Show($"Error! {ex.Message}"); }
             }
         }
+
+
+
+        private void CreateMarketplaceButton()
+        {
+            marketplaceButton = new Button();
+            marketplaceButton.Text = "Marketplace";
+            marketplaceButton.Size = new Size(100, 30);
+            marketplaceButton.Font = new Font("Segoe UI", 9);
+            marketplaceButton.FlatStyle = FlatStyle.Flat;
+            marketplaceButton.FlatAppearance.BorderSize = 0;
+            marketplaceButton.BackColor = Color.FromArgb(45, 45, 48);
+            marketplaceButton.ForeColor = Color.White;
+
+            if (balanceLabel != null)
+            {
+                marketplaceButton.Location = new Point(balanceLabel.Right + 10, balanceLabel.Top);
+            }
+            else
+            {
+                marketplaceButton.Location = new Point(10, 10); // fallback
+            }
+
+            marketplaceButton.Click += (s, e) =>
+            {
+                Marketplace marketForm = new Marketplace();
+                marketForm.Show();
+            };
+
+            this.Controls.Add(marketplaceButton);
+        }
+
+
+
+
         private void _Click(object sender, EventArgs e)
         {
             KryptonCheckButton b = (KryptonCheckButton)sender;
@@ -323,6 +369,7 @@ namespace GameServer_Management.Forms
 
             //added 4/29
             ShowBalance();
+            CreateMarketplaceButton();
         }
 
         private void loadingtimer_Tick(object sender, EventArgs e)
@@ -403,7 +450,7 @@ namespace GameServer_Management.Forms
         //added 5/1
         private void archivebtn_Click(object sender, EventArgs e)
         {
-            GameArchive archiveForm = new GameArchive();
+            GameWallet archiveForm = new GameWallet();
             archiveForm.Show();
         }
 
