@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <p align="center"><img src= "https://github.com/navinxqz/GameHub/blob/main/asset/project_ss/title_logo.png" width=600 title= "project interface" /><h2 align="center"></h2></p>
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
@@ -141,6 +140,3 @@ If you encounter any bugs or have feature requests, feel free to create an issue
             <td align = "center" width = "200"><a href="https://github.com/S0MS0MM1dA" target="_blank" alt="durjoy acc">Durjoy Podder</td>
             <td align = "center" width = "200"><a href="https://www.facebook.com/siftialmahmud.sifti" alt="Sifti fb acc" target="_blank">Sifti Al Mahmud</td>
          </tr></table>
-=======
-# Diaspora_Games_Platform
->>>>>>> e56fe6d91d1fa54a1f12b348552a2c7a1d37a7e8
